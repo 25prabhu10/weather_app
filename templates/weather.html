@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Weather</title>
+</head>
+
+<body>
+    <div class="center-on-page">
+        <h1>Weather in a City</h1>
+        <form class="form-inline" method="POST" action="{{ url_for('result') }}">
+            <div class="select">
+                <select name="comp_select" class="selectpicker form-control">
+                    {% for city in cities %}
+                    <option value="{{ city.name }}">{{ city.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+</body>
